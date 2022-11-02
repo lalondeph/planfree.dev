@@ -108,22 +108,11 @@
         </div>
       </div>
 
+      <!-- TODO make this an array that is set by a setting -->
+      <!-- TODO add a 'unit of work' description box -->
       <div class="options" v-if="!showVotes || (showVotes && countdown !== 0)">
         <button
-          v-for="vote in [
-            '0',
-            '1',
-            '2',
-            '3',
-            '5',
-            '8',
-            '13',
-            '21',
-            '34',
-            '55',
-            '89',
-            '?',
-          ]"
+          v-for="vote in tshirt"
           :key="`vote-${vote}`"
           class="fib-button"
           :class="{ current: currentVote === vote }"
@@ -162,6 +151,12 @@ const countdown = ref(0);
 const interval: any = ref(null);
 const name = ref("");
 const currentVote: any = ref(null);
+
+const fibonacci = ['0','1','2','3','5','8','13','21','34','55','89','?']
+const modFibonacci = ['0','1/2','1','2','3','5','8','13','20','40','100','?']
+const tshirt = ['XXS','XS','S','M','L','XL','XL','?']
+const powers2 = ['0','1','2','4','8','16','32','64','?']
+const five = ['1','2','4','5','?']
 
 
 let deferredPrompt: any;
